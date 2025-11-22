@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 150px 2rem 100px;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 .name {
+            display: inline-block;
+            animation: slideInRight 1.2s ease;
+        }
+
+        .hero h1 .name span {
+            display: inline-block;
+            opacity: 0;
+            animation: letterPop 0.5s ease forwards;
+        }
+
+        .hero h1 .name span:nth-child(1) { animation-delay: 0.1s; }
+        .hero h1 .name span:nth-child(2) { animation-delay: 0.15s; }
+        .hero h1 .name span:nth-child(3) { animation-delay: 0.2s; }
+        .hero h1 .name span:nth-child(4) { animation-delay: 0.25s; }
+        .hero h1 .name span:nth-child(5) { animation-delay: 0.3s; }
+        .hero h1 .name span:nth-child(6) { animation-delay: 0.35s; }
+        .hero h1 .name span:nth-child(7) { animation-delay: 0.4s; }
+        .hero h1 .name span:nth-child(8) { animation-delay: 0.45s; }
+        .hero h1 .name span:nth-child(9) { animation-delay: 0.5s; }
+        .hero h1 .name span:nth-child(10) { animation-delay: 0.55s; }
+        .hero h1 .name span:nth-child(11) { animation-delay: 0.6s; }
+        .hero h1 .name span:nth-child(12) { animation-delay: 0.65s; }
+        .hero h1 .name span:nth-child(13) { animation-delay: 0.7s; }
+        .hero h1 .name span:nth-child(14) { animation-delay: 0.75s; }
+        .hero h1 .name span:nth-child(15) { animation-delay: 0.8s; }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .cta-button {
+            background: white;
+            color: #667eea;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Sections */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 2rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #667eea;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            color: white;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .skill-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            animation: fadeInScale 0.6s ease forwards;
+        }
+
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+        .project-card:nth-child(5) { animation-delay: 0.5s; }
+        .project-card:nth-child(7) { animation-delay: 0.7s; }
+        .project-card:nth-child(8) { animation-delay: 0.8s; }
+        .project-card:nth-child(9) { animation-delay: 0.9s; }
+        .project-card:nth-child(10) { animation-delay: 1s; }
+
+        .project-card.hidden {
+            display: none;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .project-features {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .project-features strong {
+            color: #667eea;
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        .see-more-btn {
+            display: none;
+        }
+
+        /* Contact Section */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            min-width: 250px;
+            flex: 1;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .contact-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-card p {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            word-break: break-word;
+        }
+
+        .contact-link {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .contact-link.whatsapp {
+            background: #25D366;
+        }
+
+        .contact-link.whatsapp:hover {
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        .contact-link.copy {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .contact-link.copy:hover {
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .contact-link.copied {
+            background: #27ae60;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes letterPop {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.8);
+            }
+            50% {
+                transform: translateY(5px) scale(1.1);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Ahmed Elghareeb</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Hi, I'm <span class="name"><span>A</span><span>h</span><span>m</span><span>e</span><span>d</span><span> </span><span>E</span><span>l</span><span>g</span><span>h</span><span>a</span><span>r</span><span>e</span><span>e</span><span>b</span></span></h1>
+        <p>Junior Flutter Developer | Cross-Platform Mobile Specialist</p>
+        <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Get In Touch</button>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>I'm Ahmed Ashraf Ahmed Elghareeb, a passionate Flutter developer with 2 years of professional experience in building cross-platform mobile applications. My journey in mobile development started with a curiosity about how apps work, and it has evolved into a career dedicated to creating beautiful, performant, and user-centric applications.</p>
+                <br>
+                <p>I specialize in developing feature-rich applications that combine excellent user experience with robust backend integration. My portfolio spans diverse domains: fintech solutions (Zidcash, P2P-Syria, Lirat Wallet), religious apps (Quran Kareem), ride-hailing platforms (UFOO Driver), specialized transportation apps (Gebal Elrawasy), communication tools (Direct Chatting), and web applications (Hadramout Hamza). I bring a problem-solving mindset and attention to detail to every project.</p>
+                <br>
+                <p>My expertise spans secure payment systems, real-time location tracking, multi-language support, complex state management, and full-stack web development. I'm passionate about staying updated with the latest mobile development trends and writing clean, maintainable code that follows industry best practices.</p>
+            </div>
+            <div class="about-image">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="180" height="180">
+                    <defs>
+                        <linearGradient id="flutterGradient" x1="3.952%" y1="26.993%" x2="75.897%" y2="52.919%">
+                            <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#E8E8E8;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <polygon fill="url(#flutterGradient)" fill-rule="evenodd" points="157.665 0.001 0 157.665 48.8 206.463 255.263 0.001" />
+                    <polygon fill="#FFFFFF" fill-opacity="0.85" fill-rule="evenodd" points="156.567 145.396 72.937 229.026 121.736 277.825 254.064 145.496" />
+                    <polygon fill="#FFFFFF" fill-rule="evenodd" points="121.736 229.026 158.865 265.756 205.663 218.957" />
+                </svg>
+            </div>
+            <div class="project-card hidden">
+                <div class="project-image">💬</div>
+                <div class="project-content">
+                    <h3>Direct Chatting</h3>
+                    <p>Instant Chat Launcher that allows you to quickly select a country code, enter any phone number, and start chatting instantly without saving contacts.</p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        🎨 Awesome UI • 🚀 Easy to Use • 💡 Saves Effort • 📞 Instant WhatsApp Chats
+                    </div>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.ahmedaelghareeb.whatsapp_messaging" target="_blank" class="project-link">📱 Google Play</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card hidden">
+                <div class="project-image">🥘</div>
+                <div class="project-content">
+                    <h3>Hadramout Hamza</h3>
+                    <p>Multivendor Restaurant Web Application with customer website and admin dashboard for managing restaurant operations and orders.</p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        🍽️ Dynamic Menu Browsing • 🛒 Shopping Cart • 📅 Delivery Scheduling • 🪑 Table Reservations • 📊 Admin Dashboard
+                    </div>
+                    <div class="project-links">
+                        <a href="https://hadramout-hamza.com/" target="_blank" class="project-link">🌐 Visit Website</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card hidden">
+                <div class="project-image">🚚</div>
+                <div class="project-content">
+                    <h3>Thimar Driver</h3>
+                    <p>Delivery Management Mobile Application for licensed drivers, streamlining order fulfillment and delivery tracking for the Thimar e-commerce platform.</p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        📍 Real-time Order Tracking • 🗺️ Route Navigation • ✅ Status Updates • 💬 Backend Communication
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/AhmedAElghareeb/Thimar_Driver" target="_blank" class="project-link">💻 GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card hidden">
+                <div class="project-image">🛒</div>
+                <div class="project-content">
+                    <h3>Thimar – E-commerce App</h3>
+                    <p>Mobile E-commerce Application for ordering essential household items including fresh fruits, vegetables, and meats with home delivery.</p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        🛍️ Intuitive Shopping Flows • 📦 Product Categories • 🛒 Cart Management • 🚚 Home Delivery
+                    </div>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.alalmiya.thamra&hl=ar" target="_blank" class="project-link">📱 Google Play</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="see-more-btn" onclick="window.open('projects.html', '_blank')">See All Projects</button>
+    </section>
+
+    <section id="skills">
+        <h2>My Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>📱 Flutter Development</h3>
+                <p>Cross-platform mobile apps, State Management (BLoC), Material Design, Custom UI/UX, Animations</p>
+            </div>
+            <div class="skill-card">
+                <h3>💳 Fintech & Integration</h3>
+                <p>Secure Payment Systems, API Integration, Real-time Location Tracking, Push Notifications, Firebase</p>
+            </div>
+            <div class="skill-card">
+                <h3>⚙️ Backend Skills</h3>
+                <p>Backend Integration, RESTful APIs, Multi-language Support, Database Management, Web Development</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">💰</div>
+                <div class="project-content">
+                    <h3>Zidcash – Online Wallet</h3>
+                    <p>Ultimate digital wallet for creating virtual cards, transferring funds, and managing deposits or withdrawals — all in one secure, seamless app.</p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        💳 Virtual Card Creation • 💸 USDT Withdrawals & Deposits • 🔁 P2P Money Transfers • 📊 Account Management • 🌍 Multi-Language Support
+                    </div>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.zidCach.app" target="_blank" class="project-link">📱 Google Play</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">📖</div>
+                <div class="project-content">
+                    <h3>Quran Kareem</h3>
+                    <p>A digital version of the Holy Quran designed with a clean, user-friendly interface for an intuitive reading experience.</p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        📚 Browse All Chapters • 📄 Verse Navigation with Pages • 💾 Automatic Progress Saving • 🌐 Arabic & English Support
+                    </div>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.app.QuraanKareem" target="_blank" class="project-link">📱 Google Play</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🚕</div>
+                <div class="project-content">
+                    <h3>UFOO Driver</h3>
+                    <p>The ultimate driving companion built for ride-hailing professionals in Saudi Arabia. Drive. Earn. Evolve.</p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        🗺️ Smart Ride Management • 💰 Transparent Earnings Dashboard • 🔒 Secure Rider Communication • 📊 Profile & Vehicle Management
+                    </div>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.ufoDriver.app" target="_blank" class="project-link">📱 Google Play</a>
+                        <a href="https://apps.apple.com/eg/app/ufoo-driver/id6748874649" target="_blank" class="project-link">🍎 App Store</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">✈️</div>
+                <div class="project-content">
+                    <h3>Gebal Elrawasy - الجبال الرواسي</h3>
+                    <p>Hajj Transportation Guide App designed to facilitate worker transportation services during the Hajj season in Saudi Arabia.</p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        🔐 Secure Login • 📋 Create Worker Requests • 📍 Track Requests • 🌍 Multilingual Support
+                    </div>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=sa.gebalAlrwasay.app" target="_blank" class="project-link">📱 Google Play</a>
+                        <a href="https://apps.apple.com/ca/app/%D8%A7%D9%84%D8%AC%D8%A8%D8%A7%D9%84-%D8%A7%D9%84%D8%B1%D9%88%D8%A7%D8%B3%D9%8A/id6744922960" target="_blank" class="project-link">🍎 App Store</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">💰</div>
+                <div class="project-content">
+                    <h3>P2P-Syria</h3>
+                    <p>Financial Management System designed to help users handle their financial transactions securely and efficiently with multi-currency support.</p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        🔑 Secure Login • ⚡ Real-Time Transactions • 🌐 Multilingual Support • 💼 Financial Management
+                    </div>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.p2psyria.app" target="_blank" class="project-link">📱 Google Play</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">💳</div>
+                <div class="project-content">
+                    <h3>Lirat Wallet - محفظة ليرات</h3>
+                    <p>Modern Fintech E-Wallet built to deliver a seamless and secure experience for both individuals and businesses.</p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        🔐 Secure Login • 💸 Real-Time Transactions • 🌍 Multilingual Support • 🛡️ Top-Tier Security
+                    </div>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=store.lirat.paymoney" target="_blank" class="project-link">📱 Google Play</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">💬</div>
+                <div class="project-content">
+                    <h3>Direct Chatting</h3>
+                    <p>Instant Chat Launcher that allows you to quickly select a country code, enter any phone number, and start chatting instantly without saving contacts.</p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        🎨 Awesome UI • 🚀 Easy to Use • 💡 Saves Effort • 📞 Instant WhatsApp Chats
+                    </div>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.ahmedaelghareeb.whatsapp_messaging" target="_blank" class="project-link">📱 Google Play</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🥘</div>
+                <div class="project-content">
+                    <h3>Hadramout Hamza</h3>
+                    <p>Multivendor Restaurant Web Application with customer website and admin dashboard for managing restaurant operations and orders.</p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        🍽️ Dynamic Menu Browsing • 🛒 Shopping Cart • 📅 Delivery Scheduling • 🪑 Table Reservations • 📊 Admin Dashboard
+                    </div>
+                    <div class="project-links">
+                        <a href="https://hadramout-hamza.com/" target="_blank" class="project-link">🌐 Visit Website</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🚚</div>
+                <div class="project-content">
+                    <h3>Thimar Driver</h3>
+                    <p>Delivery Management Mobile Application for licensed drivers, streamlining order fulfillment and delivery tracking for the Thimar e-commerce platform.</p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        📍 Real-time Order Tracking • 🗺️ Route Navigation • ✅ Status Updates • 💬 Backend Communication
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/AhmedAElghareeb/Thimar_Driver" target="_blank" class="project-link">💻 GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🛒</div>
+                <div class="project-content">
+                    <h3>Thimar – E-commerce App</h3>
+                    <p>Mobile E-commerce Application for ordering essential household items including fresh fruits, vegetables, and meats with home delivery.</p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        🛍️ Intuitive Shopping Flows • 📦 Product Categories • 🛒 Cart Management • 🚚 Home Delivery
+                    </div>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.alalmiya.thamra&hl=ar" target="_blank" class="project-link">📱 Google Play</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-form">
+            <div class="contact-card">
+                <div class="contact-icon">📧</div>
+                <h3>Email</h3>
+                <p>ahmed.elghareeb1166@gmail.com</p>
+                <button onclick="copyEmail()" class="contact-link copy" id="copyBtn">📋 Copy Email</button>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-icon">💬</div>
+                <h3>WhatsApp</h3>
+                <p>+20 115 675 0391</p>
+                <a href="https://wa.me/201156750391" target="_blank" class="contact-link whatsapp">Chat on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Ahmed Elghareeb. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function copyEmail() {
+            const email = 'ahmed.elghareeb1166@gmail.com';
+            const button = document.getElementById('copyBtn');
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(email).then(() => {
+                // Change button text and color
+                button.textContent = '✅ Copied!';
+                button.classList.add('copied');
+                
+                // Reset after 2 seconds
+                setTimeout(() => {
+                    button.textContent = '📋 Copy Email';
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                // Fallback for older browsers
+                const textarea = document.createElement('textarea');
+                textarea.value = email;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                
+                button.textContent = '✅ Copied!';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.textContent = '📋 Copy Email';
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Create "See All Projects" page and open it
+        document.querySelector('.see-more-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const allProjectsHTML = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Projects - Ahmed Elghareeb</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            background: rgba(255,255,255,0.2);
+            border-radius: 25px;
+            transition: background 0.3s;
+        }
+
+        .back-link:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .project-features {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .project-features strong {
+            color: #667eea;
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>All Projects</h1>
+        <p>Ahmed Elghareeb - Flutter Developer Portfolio</p>
+        <a href="javascript:window.close()" class="back-link">← Back to Portfolio</a>
+    </header>
+
+    <div class="container">
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">💰</div>
+                <div class="project-content">
+                    <h3>Zidcash – Online Wallet</h3>
+                    <p>Ultimate digital wallet for creating virtual cards, transferring funds, and managing deposits or withdrawals — all in one secure, seamless app.</p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        💳 Virtual Card Creation • 💸 USDT Withdrawals & Deposits • 🔁 P2P Money Transfers • 📊 Account Management • 🌍 Multi-Language Support
+                    </div>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.zidCach.app" target="_blank" class="project-link">📱 Google Play</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">📖</div>
+                <div class="project-content">
+                    <h3>Quran Kareem</h3>
+                    <p>A digital version of the Holy Quran designed with a clean, user-friendly interface for an intuitive reading experience.</p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        📚 Browse All Chapters • 📄 Verse Navigation with Pages • 💾 Automatic Progress Saving • 🌐 Arabic & English Support
+                    </div>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.app.QuraanKareem" target="_blank" class="project-link">📱 Google Play</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🚕</div>
+                <div class="project-content">
+                    <h3>UFOO Driver</h3>
+                    <p>The ultimate driving companion built for ride-hailing professionals in Saudi Arabia. Drive. Earn. Evolve.</p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        🗺️ Smart Ride Management • 💰 Transparent Earnings Dashboard • 🔒 Secure Rider Communication • 📊 Profile & Vehicle Management
+                    </div>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.ufoDriver.app" target="_blank" class="project-link">📱 Google Play</a>
+                        <a href="https://apps.apple.com/eg/app/ufoo-driver/id6748874649" target="_blank" class="project-link">🍎 App Store</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">✈️</div>
+                <div class="project-content">
+                    <h3>Gebal Elrawasy - الجبال الرواسي</h3>
+                    <p>Hajj Transportation Guide App designed to facilitate worker transportation services during the Hajj season in Saudi Arabia.</p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        🔐 Secure Login • 📋 Create Worker Requests • 📍 Track Requests • 🌍 Multilingual Support
+                    </div>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=sa.gebalAlrwasay.app" target="_blank" class="project-link">📱 Google Play</a>
+                        <a href="https://apps.apple.com/ca/app/%D8%A7%D9%84%D8%AC%D8%A8%D8%A7%D9%84-%D8%A7%D9%84%D8%B1%D9%88%D8%A7%D8%B3%D9%8A/id6744922960" target="_blank" class="project-link">🍎 App Store</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">💰</div>
+                <div class="project-content">
+                    <h3>P2P-Syria</h3>
+                    <p>Financial Management System designed to help users handle their financial transactions securely and efficiently with multi-currency support.</p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        🔑 Secure Login • ⚡ Real-Time Transactions • 🌐 Multilingual Support • 💼 Financial Management
+                    </div>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.p2psyria.app" target="_blank" class="project-link">📱 Google Play</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">💳</div>
+                <div class="project-content">
+                    <h3>Lirat Wallet - محفظة ليرات</h3>
+                    <p>Modern Fintech E-Wallet built to deliver a seamless and secure experience for both individuals and businesses.</p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        🔐 Secure Login • 💸 Real-Time Transactions • 🌍 Multilingual Support • 🛡️ Top-Tier Security
+                    </div>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=store.lirat.paymoney" target="_blank" class="project-link">📱 Google Play</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">💬</div>
+                <div class="project-content">
+                    <h3>Direct Chatting</h3>
+                    <p>Instant Chat Launcher that allows you to quickly select a country code, enter any phone number, and start chatting instantly without saving contacts.</p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        🎨 Awesome UI • 🚀 Easy to Use • 💡 Saves Effort • 📞 Instant WhatsApp Chats
+                    </div>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.ahmedaelghareeb.whatsapp_messaging" target="_blank" class="project-link">📱 Google Play</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🥘</div>
+                <div class="project-content">
+                    <h3>Hadramout Hamza</h3>
+                    <p>Multivendor Restaurant Web Application with customer website and admin dashboard for managing restaurant operations and orders.</p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        🍽️ Dynamic Menu Browsing • 🛒 Shopping Cart • 📅 Delivery Scheduling • 🪑 Table Reservations • 📊 Admin Dashboard
+                    </div>
+                    <div class="project-links">
+                        <a href="https://hadramout-hamza.com/" target="_blank" class="project-link">🌐 Visit Website</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🚚</div>
+                <div class="project-content">
+                    <h3>Thimar Driver</h3>
+                    <p>Delivery Management Mobile Application for licensed drivers, streamlining order fulfillment and delivery tracking for the Thimar e-commerce platform.</p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        📍 Real-time Order Tracking • 🗺️ Route Navigation • ✅ Status Updates • 💬 Backend Communication
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/AhmedAElghareeb/Thimar_Driver" target="_blank" class="project-link">💻 GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🛒</div>
+                <div class="project-content">
+                    <h3>Thimar – E-commerce App</h3>
+                    <p>Mobile E-commerce Application for ordering essential household items including fresh fruits, vegetables, and meats with home delivery.</p>
+                    <div class="project-features">
+                        <strong>Key Features:</strong>
+                        🛍️ Intuitive Shopping Flows • 📦 Product Categories • 🛒 Cart Management • 🚚 Home Delivery
+                    </div>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.alalmiya.thamra&hl=ar" target="_blank" class="project-link">📱 Google Play</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Ahmed Elghareeb. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+            `;
+            
+            const blob = new Blob([allProjectsHTML], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            window.open(url, '_blank');
+        });
+    </script>
+</body>
+</html>
